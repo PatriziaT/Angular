@@ -7,6 +7,7 @@
       </div>
     </div>
   
+    <!-- group card looping thru a list of items -->
     <div fxFlex>
       <md-grid-list cols="2" rowHeight="200px">
         <md-grid-tile *ngFor="let dish of dishes">
@@ -17,6 +18,9 @@
         </md-grid-tile>
       </md-grid-list>
     </div>
+
+    
+    <!-- single item card -->
     <!-- <div fxFlex *ngIf="selectedDish">
         <md-card>
           <md-card-header>
