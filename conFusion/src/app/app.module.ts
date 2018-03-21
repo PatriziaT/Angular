@@ -12,6 +12,7 @@ import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './dishdetail/dishdetail.component';
 import { DatePipe } from '@angular/common';
 
+import { DishService } from './services/dish.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,7 @@ import { DatePipe } from '@angular/common';
     MaterialModule,
     FlexLayoutModule
   ],
-  providers: [DatePipe],
+  providers: [DatePipe, DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

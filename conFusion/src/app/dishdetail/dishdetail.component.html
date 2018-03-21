@@ -1,7 +1,13 @@
-<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px" fxLayoutGap.xs="0">
+<div class="container" 
+  fxLayout="row" 
+  fxLayout.sm="column" 
+  fxLayout.xs="column" 
+  fxLayoutAlign.gt-md="space-around center" 
+  fxLayoutGap="10px" 
+  fxLayoutGap.xs="0">
   
-    <div fxFlex *ngIf="dish">
-        <md-card>
+    <div fxFlex ="40">
+        <md-card *ngIf="dish">
           <md-card-header>
             <md-card-title>
               <h3>{{dish.name | uppercase}}</h3>
@@ -22,8 +28,8 @@
 
 <!-- Assignment week 1 Task 3 -->
   
-      <div fxFlex *ngIf="dish">
-          <md-card>
+      <div fxFlex="40">
+          <md-card *ngIf="dish">
             <md-card-header>
               <md-card-title>
                 <h3>COMMENTS</h3>
@@ -32,7 +38,7 @@
             <md-card-content>
               <md-list>
                 <div *ngFor="let comment of dish.comments">
-                <p> {{comment.comment}} </p>
+                <p>{{comment.comment}} </p>
                 <p>{{comment.rating}} Stars</p>
                 <p>{{comment.author}}, {{comment.date | date}}</p>
                 <br>
