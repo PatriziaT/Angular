@@ -23,6 +23,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { PromotionService } from './services/promotion.service';
 
+import { LeaderService } from './services/leader.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { PromotionService } from './services/promotion.service';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +42,7 @@ import { PromotionService } from './services/promotion.service';
     FlexLayoutModule,
     AppRoutingModule
   ],
-  providers: [DatePipe, DishService,PromotionService],
+  providers: [DatePipe, DishService,PromotionService, LeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
