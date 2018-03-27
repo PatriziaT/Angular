@@ -67,9 +67,10 @@
           <span>{{leader.designation}}</span>
           <p>{{leader.description}}</p>
 
-        
         </div>
-       
     </md-list>
   </div>
+  <div [hidden]="dishes">
+      <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
+    </div>
 </div>
