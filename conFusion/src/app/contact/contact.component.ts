@@ -13,6 +13,7 @@ export class ContactComponent implements OnInit {
   feedbackForm: FormGroup;
   feedback: Feedback;
   contactType = ContactType;
+
   formErrors = {
     'firstname': '',
     'lastname': '',
@@ -21,6 +22,7 @@ export class ContactComponent implements OnInit {
   };
 
   validationMessages = {
+
     'firstname': {
       'required':      'First Name is required.',
       'minlength':     'First Name must be at least 2 characters long.',
@@ -41,7 +43,8 @@ export class ContactComponent implements OnInit {
     },
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder) {
     this.createForm();
   }
 

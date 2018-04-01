@@ -1,62 +1,67 @@
-<div class="container" 
-  fxLayout="row" 
-  fxLayout.sm="column" 
-  fxLayout.xs="column" 
-  fxLayoutAlign.gt-md="space-around center" 
-  fxLayoutGap="10px" 
-  fxLayoutGap.xs="0">
-  
-    <div fxFlex="40" *ngIf="dish">
-        <md-card>
-          <md-card-header>
-            <md-card-title>
-              <h3>{{dish.name | uppercase}}</h3>
-            </md-card-title>
-          </md-card-header>
-          <img md-card-image src={{dish.image}} alt={{dish.name}}>
-          <md-card-content>
-            <p>{{dish.description}}
-            </p>
-          </md-card-content>
-         <!-- week3  -->
-         <md-card-actions>
-          <button md-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
-          <button md-button (click)="goBack()">BACK</button>
-          <button md-button>LIKE</button>
-          <button md-button>SHARE</button>
-          <span class="flex-spacer"></span>
-          <button md-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
-        </md-card-actions>
-      </md-card>
-    </div>
-  
-          <!-- week2 -->
-          <!-- <md-card-actions>
-            <button md-button (click)="goBack()">BACK</button>
-            <button md-button>LIKE</button>
-            <button md-button>SHARE</button>
-          </md-card-actions> -->
-        <!-- </md-card> -->
+<div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
+  fxLayoutGap="10px" fxLayoutGap.xs="0">
+
+  <div fxFlex="40" *ngIf="dish">
+    <md-card>
+      <md-card-header>
+        <md-card-title>
+          <h3>{{dish.name | uppercase}}</h3>
+        </md-card-title>
+      </md-card-header>
+      <img md-card-image src={{dish.image}} alt={{dish.name}}>
+      <md-card-content>
+        <p>{{dish.description}}
+        </p>
+      </md-card-content>
+      <!-- week3  -->
+      <md-card-actions>
+        <button md-button [routerLink]="['/dishdetail', prev]">
+          <span class="fa fa-chevron-left fa-lg"></span>
+        </button>
+        <button md-button (click)="goBack()">BACK</button>
+        <button md-button>LIKE</button>
+        <button md-button>SHARE</button>
+        <span class="flex-spacer"></span>
+        <button md-button [routerLink]="['/dishdetail', next]">
+          <span class="fa fa-chevron-right fa-lg"></span>
+        </button>
+      </md-card-actions>
+    </md-card>
+  </div>
 </div>
-    
+
 
 <!-- Assignment week 1 Task 3 -->
-  
+
 <div fxFlex="40" *ngIf="dish">
-    <md-list>
-      <h3>Comments</h3>
-          <md-list-item *ngFor="let comment of dish.comments">
-              <h4 md-line> {{comment.comment}} </h4>
-                <p md-line> {{comment.rating}} Stars</p>
-                <p md-line> 
-                  <span> -- {{comment.author}}, {{comment.date | date}} </span>
-                </p>
-          </md-list-item>
-    </md-list>
-        </div>
-        <div [hidden]="dishes">
-            <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
-        </div>
-  
-
-
+    <h3>Send us your Feedback</h3>
+    <p>{{ commentForm.value | json }} {{ commentForm.status | json }}</p>
+  <md-list>
+    <h3>Comments</h3>
+    <md-list-item *ngFor="let comment of dish.comments">
+      <h4 md-line> {{comment.comment}} </h4>
+      <p md-line> {{comment.rating}} Stars</p>
+      <p md-line>
+        <span> -- {{comment.author}}, {{comment.date | date}} </span>
+      </p>
+    </md-list-item>
+    
+    <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+      <md-input-container class="half-width">
+        <input mdInput formControlName="author" placeholder="Author" type="text" required>
+      </md-input-container>
+      <div class="full-width">
+        <md-slider mdInput formControlName="rating" min="1" max="5" step="1" value="5" thumbLabel tickInterval="1"></md-slider>
+      </div>
+      <md-input-container class="full-width">
+        <textarea mdInput formControlName="comment" placeholder="Your Comment" rows=12 required></textarea>
+      </md-input-container>
+      <button type="submit" md-button class="background-primary text-floral-white" >Submit</button>
+    </form>
+  </md-list>
+ 
+</div>
+<div [hidden]="dish">
+    <md-spinner></md-spinner>
+    <h4>Loading . . . Please Wait</h4>
+  </div>
