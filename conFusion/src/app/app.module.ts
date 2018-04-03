@@ -27,6 +27,12 @@ import { LeaderService } from './services/leader.service';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModuleComponent } from './http-module/http-module.component';
+
+import { HttpModule } from '@angular/http';
+import { baseURL } from './shared/baseurl';
+import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +44,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ContactComponent,
     LoginComponent,
+    HttpModuleComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +53,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     FlexLayoutModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [DatePipe, DishService,PromotionService, LeaderService],
+  providers: [DatePipe, DishService,PromotionService, LeaderService, ProcessHTTPMsgService,
+    {provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent],
   entryComponents: [LoginComponent]
 })

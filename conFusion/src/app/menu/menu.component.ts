@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Dish } from '../shared/dish';
-import { DISHES } from '../shared/dishes';
+
+// delete for week4 import { DISHES } from '../shared/dishes';
 
 import { DishService } from '../services/dish.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -14,9 +16,10 @@ export class MenuComponent implements OnInit {
   dishes: Dish[];
   
   
-  selectedDish: Dish;
 
-  constructor( private dishService: DishService ) { }
+  constructor( 
+    private dishService: DishService,
+    @Inject('BaseURL') private BaseURL ) { }
 
   ngOnInit() {
 
@@ -27,9 +30,6 @@ export class MenuComponent implements OnInit {
 // week 2
   //   this.dishService.getDishes()
   //   .then(dishes => this.dishes = dishes);
-  }
-  onSelect(dish: Dish) {
-    this.selectedDish = dish;
   }
 
 }
