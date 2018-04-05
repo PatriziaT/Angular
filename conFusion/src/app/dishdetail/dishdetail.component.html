@@ -1,7 +1,7 @@
 <div class="container" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center"
   fxLayoutGap="10px" fxLayoutGap.xs="0">
 
-  <div fxFlex="40" *ngIf="dish">
+  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
     <md-card>
       <md-card-header>
         <md-card-title>
@@ -33,7 +33,7 @@
 
 <!-- Assignment week 1 Task 3 -->
 
-<div fxFlex="40" *ngIf="dish">
+<div fxFlex="40" *ngIf="dish" [@visibility]="visibility">
     <h3>Send us your Feedback</h3>
     <p>{{ commentForm.value | json }} {{ commentForm.status | json }}</p>
   <md-list>
