@@ -14,6 +14,7 @@ import { DishService } from '../services/dish.service';
 export class MenuComponent implements OnInit {
 
   dishes: Dish[];
+  errMess: string;
   
   
 
@@ -23,9 +24,10 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
 
-// week 3
-    this.dishService.getDishes()
-      .subscribe(dishes => this.dishes = dishes);
+//week4 update
+this.dishService.getDishes()
+.subscribe(dishes => this.dishes = dishes,
+  errmess => this.errMess = <any>errmess);
 
 // week 2
   //   this.dishService.getDishes()
