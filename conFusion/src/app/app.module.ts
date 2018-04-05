@@ -35,6 +35,7 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
 
 import { RestangularModule, Restangular } from 'ngx-restangular';
 import { RestangularConfigFactory } from './shared/restConfig';
+import { HighlightDirective } from './directives/highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { RestangularConfigFactory } from './shared/restConfig';
     ContactComponent,
     LoginComponent,
     HttpModuleComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,7 @@ import { RestangularConfigFactory } from './shared/restConfig';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
     RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [DatePipe, DishService,PromotionService, LeaderService, ProcessHTTPMsgService,
@@ -65,3 +67,4 @@ import { RestangularConfigFactory } from './shared/restConfig';
   entryComponents: [LoginComponent]
 })
 export class AppModule { }
+
