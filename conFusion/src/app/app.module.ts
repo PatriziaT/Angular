@@ -33,6 +33,8 @@ import { HttpModule } from '@angular/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
 
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +57,7 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service'
     FormsModule,
     ReactiveFormsModule,
     HttpModule
+    RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [DatePipe, DishService,PromotionService, LeaderService, ProcessHTTPMsgService,
     {provide: 'BaseURL', useValue: baseURL}],
