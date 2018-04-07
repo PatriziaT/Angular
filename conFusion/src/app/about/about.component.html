@@ -20,7 +20,7 @@
           world's best cuisines in a pan.</p>
       </div>
       <div fxFlex="30">
-        <md-card *ngIf="leader">
+        <md-card *ngIf="leaders">
           <md-card-header>
             <md-card-title>
               <h2>Facts At a Glance</h2>
@@ -59,17 +59,14 @@
 
   <div fxFlex>
     <h2>Corporate Leadership</h2>
-    <p>Display the details of the corporate leaders here</p>
-    <md-list>
-        <div *ngFor="let leader of leaders"> 
+    <md-list *ngIf="leaders" [@expand]>
+        <md-list-item *ngFor="let leader of leaders"> 
           <img md-list-avatar src={{leader.image}} alt={{leader.name}}> 
-          <p>{{leader.name}}, {{leader.abbr}}</p> 
-          <span>{{leader.designation}}</span>
-          <p>{{leader.description}}</p>
-
-        </div>
+          <h4 md-line>{{leader.name}}, {{leader.abbr}}</h4> 
+          <p md-line>{{leader.designation}}</p>
+          <p md-line>{{leader.description}}</p>
+    </md-list-item>
     </md-list>
-  </div>
   <div [hidden]="leaders">
       <md-spinner></md-spinner><h4>Loading . . . Please Wait</h4>
     </div>

@@ -5,10 +5,19 @@ import { LeaderService } from '../services/leader.service';
 
 import { Params } from '@angular/router';
 
+import { flyInOut, expand } from '../animations/app.animation';
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  styleUrls: ['./about.component.scss'],
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+    animations: [
+      flyInOut(), expand ()
+    ]
+  
 })
 export class AboutComponent implements OnInit {
 
@@ -16,15 +25,9 @@ export class AboutComponent implements OnInit {
 
   constructor(private leaderservice: LeaderService
   ){}
-
-  // week 3
-  //   this.LeaderService.getDishes()
-  //     .subscribe(leaders => this.leaders = leaders);
   
-  // };
 ngOnInit() {
     this.leaderservice.getLeaders()
     .subscribe(leaders => this.leaders = leaders);
   };
   }
-
